@@ -47,11 +47,11 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ y: -20, opacity: 0, x: "-50%" }}
+        animate={{ y: 0, opacity: 1, x: "-50%" }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "fixed left-1/2 top-4 z-50 -translate-x-1/2 transition-all duration-500",
+          "fixed left-1/2 top-4 z-50 max-w-[calc(100vw-1rem)] transition-all duration-500",
           scrolled ? "top-3" : "top-5"
         )}
       >
@@ -65,7 +65,7 @@ export default function Navbar() {
         >
           <a
             href="#home"
-            className="ml-2 mr-3 flex items-center gap-2 text-sm font-medium"
+            className="ml-2 mr-2 flex shrink-0 items-center gap-2 text-sm font-medium lg:mr-3"
             aria-label="Home"
           >
             <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-accent-blue via-accent-sky to-accent-cyan">
@@ -74,12 +74,12 @@ export default function Navbar() {
             <span className="hidden text-fg sm:inline">Lokeshwari</span>
           </a>
 
-          <ul className="hidden items-center gap-0.5 md:flex">
+          <ul className="hidden items-center gap-0.5 lg:flex">
             {links.map((l) => {
               const id = l.href.replace("#", "");
               const isActive = active === id;
               return (
-                <li key={l.href}>
+                <li key={l.href} className="shrink-0">
                   <a
                     href={l.href}
                     className={cn(
@@ -106,7 +106,7 @@ export default function Navbar() {
           <a
             href={site.resumeUrl}
             download
-            className="ml-1 hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-blue to-accent-sky px-3.5 py-1.5 text-[13px] font-medium text-white shadow-[0_6px_18px_-8px_rgba(37,99,235,0.6)] transition-all hover:brightness-105 md:inline-flex"
+            className="ml-1 hidden shrink-0 items-center gap-1.5 rounded-full bg-gradient-to-r from-accent-blue to-accent-sky px-3.5 py-1.5 text-[13px] font-medium text-white shadow-[0_6px_18px_-8px_rgba(37,99,235,0.6)] transition-all hover:brightness-105 lg:inline-flex"
           >
             Resume
             <ArrowUpRight className="h-3.5 w-3.5" />
@@ -115,7 +115,7 @@ export default function Navbar() {
           <button
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-full text-fg hover:bg-accent-blue/[0.08] md:hidden"
+            className="ml-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-fg hover:bg-accent-blue/[0.08] lg:hidden"
           >
             <Menu className="h-4 w-4" />
           </button>
