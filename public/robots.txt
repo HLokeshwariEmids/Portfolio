@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hlokeshwariemids.github.io/Portfolio/sitemap.xml
